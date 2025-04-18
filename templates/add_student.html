@@ -1,0 +1,15 @@
+<h2>Add New Student</h2>
+<form method="post">
+  ID: <input name="ID" required><br>
+  Name: <input name="name" required><br>
+  Department:
+  <select name="dept_name">
+    {% for d in departments %}
+    <option value="{{ d.dept_name }}">{{ d.dept_name }}</option>
+    {% endfor %}
+  </select><br>
+  Transfer Student? <input type="checkbox" name="transfer" value="yes"><br>
+  Initial Credits (only if transfer): <input name="tot_cred" type="number" min="0"><br>
+  <button type="submit">Add</button>
+</form>
+<a href="{{ url_for('index') }}">Back</a>
