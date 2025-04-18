@@ -1,0 +1,22 @@
+<h2>Schedule for {{ student.name }} ({{ student.ID }})</h2>
+<form method="get">
+  Filter by Year:
+  <select name="year" onchange="this.form.submit()">
+    <option value="">All</option>
+    {% for y in years %}
+    <option value="{{ y.year }}" {% if selected_year == y.year|string %}selected{% endif %}>{{ y.year }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<table border="1">
+  <tr><th>Course ID</th><th>Semester</th><th>Year</th></tr>
+  {% for c in schedule %}
+  <tr>
+    <td>{{ c.course_id }}</td>
+    <td>{{ c.semester }}</td>
+    <td>{{ c.year }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="{{ url_for('index') }}">Back</a>
