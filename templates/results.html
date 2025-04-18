@@ -1,0 +1,14 @@
+<h2>Search Results</h2>
+<table border="1">
+  <tr><th>ID</th><th>Name</th><th>Department</th><th>Total Credits</th><th>Schedule</th></tr>
+  {% for s in students %}
+  <tr>
+    <td>{{ s.ID }}</td>
+    <td>{{ s.name }}</td>
+    <td>{{ s.dept_name }}</td>
+    <td>{{ s.tot_cred }}</td>
+    <td><a href="{{ url_for('schedule', student_id=s.ID) }}">View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="{{ url_for('index') }}">Back</a>
